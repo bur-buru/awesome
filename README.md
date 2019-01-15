@@ -1,2 +1,2 @@
-# awesome
-awesome wm
+# awesomewm
+awesome wm configuration
