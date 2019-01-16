@@ -33,6 +33,6 @@ run pavucontrol
 # user gui programs
 run atom
 run gitkraken
-run Firefox
+run firefox
 run nemo
 run VirtualBox
