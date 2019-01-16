@@ -1,5 +1,6 @@
 #!/bin/zsh
-
+# this checks if the program is already running.
+# If not, starts it.
 function run {
   if ! pgrep $1 ;
   then
@@ -9,7 +10,6 @@ function run {
 # compositor
 #run compton -b -c --config ~/.config/compton.conf --backend glx --vsync opengl-swc --glx-use-copysubbuffermesa --xrender-sync --xrender-sync-fence
 
-
 # display
 #run ~/bin/dual.sh
 run $HOME/bin/ssoff
@@ -17,8 +17,8 @@ run $HOME/bin/ssoff
 # system
 #run unclutter -root
 
-#run urxvtd
-run /home/burburu/.config/awesome/urxvtd.sh
+#run urxvtd.sh
+run $HOME/.config/awesome/urxvtd.sh
 
 # bluetooth
 run blueman-applet
@@ -30,33 +30,9 @@ run pulseeffects --gapplication-service
 run pulseeffects
 run pavucontrol
 
-# Tag 1
-run firefox
-
-# Tag 2
+# user gui programs
 run atom
-run gitkracken
-
-# Tag 3
-run termite
-run xterm
-
-# Tag 4
-
-
-# Tag 5
+run gitkraken
+run Firefox
 run nemo
-
-# Tag 6
-
-
-# Tag 7
-run virtualbox
-
-# Tag 8
-
-
-# Tag 9
-
-
-# Tag 0
+run VirtualBox
