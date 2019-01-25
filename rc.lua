@@ -2,29 +2,29 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
+local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, table, tostring, tonumber, type
 -- @DOC_REQUIRE_SECTION@
 -- Standard awesome library
-local gears = require("gears")
-local awful = require("awful")
-require("awful.autofocus")
+local gears                = require("gears")
+local awful                = require("awful")
+                                    require("awful.autofocus")
 -- Widget and layout library
-local wibox = require("wibox")
+local wibox                = require("wibox")
 -- Theme handling library
-local beautiful = require("beautiful")
+local beautiful           = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
-local menubar = require("menubar")
+local naughty            = require("naughty")
+local menubar           = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
--- Enable hotkeys help widget for VIM and other apps
--- when client with a matching name is opened:
-require("awful.hotkeys_popup.keys")
-
+                                     require("awful.hotkeys_popup.keys")
 -- {{ burburu added
-local freedesktop = require("freedesktop")
-local radical = require("radical")
+local freedesktop       = require("freedesktop")
+-- local radical = require("radical")
 -- widgets
-local lain = require("lain")
-local vicious = require("vicious")
+local lain                    = require("lain")
+local vicious               = require("vicious")
+
 -- }}
 
 -- {{{ Error handling
@@ -33,7 +33,7 @@ local vicious = require("vicious")
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
+                     title = "Ooo wee Im Mr. Meeseeks, you need some help, Jerry!",
                      text = awesome.startup_errors })
 end
 
@@ -63,7 +63,7 @@ awful.spawn.with_shell("$HOME/.config/awesome/autostart.sh")
 
 -- @DOC_DEFAULT_APPLICATIONS@
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "urxvtc"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -207,9 +207,11 @@ screen.connect_signal("property::geometry", set_wallpaper)
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
+    -- Quake Dropdown
+    s.quake = lain.util.quake()
 
     -- Each screen has its own tag table.
-local names = { "www", "Atom", "Term", "gimp", "Nemo", "Media", "Server", "Droid", "Sys" }
+local names = { "www", "atom", "term", "nemo", "visual", "audio", "vbox", "droid", "sys" }
 local l = awful.layout.suit  -- Just to save some typing: use an alias.
 local layouts = { l.tile, l.tile, l.fair, l.tile, l.fair, l.tile, l.tile.left, l.tile, l.tile }
 awful.tag(names, s, layouts)
@@ -373,7 +375,12 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher", followtag= true}),
+
+    -- My keybinds
+    -- Dropdown application
+    awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
+              {description = "dropdown application", group = "launcher"})
 )
 
 -- @DOC_CLIENT_KEYBINDINGS@
@@ -549,20 +556,38 @@ awful.rules.rules = {
     },
 
     -- Terminals
-       { rule = { class = "xterm"},
-       properties = { screen = 1, tag = "9"} },
+       { rule = { class = "xterm" },
+       properties = { screen = 1, tag = "sys" } },
+
+       { rule = { class = "termite" },
+       properties = { screen = 1, tag = "term" } },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
        { rule = { class = "Firefox" },
-       properties = { screen = 1, tag = "1" } },
+       properties = { screen = 1, tag = "www" } },
 
     -- Atom
        { rule = { class = "atom" },
-       properties = { screen = 1, tag = "2" } },
+       properties = { screen = 1, tag = "atom" } },
+
+    -- Nemo
+       { rule = { class = "nemo" },
+       properties = { screen = 1, tag = "nemo" } },
+
+    -- Visual
+      { rule = { class = "gimp" },
+      properties = { screen = 1, tag = "visual" } },
+
+    -- Audio
+      { rule = { class = "pavucontrol" },
+      properties = { screen = 1, tag = "audio" } },
+
+      { rule = { class = "pulseeffects" },
+      properties = { screen = 1, tag = "audio" } },
 
     -- VirtualBox
        { rule = { class = "VirtualBox" },
-       properties = { screen = 1, tag = "7" } },
+       properties = { screen = 1, tag = "vbox" } },
 }
 -- }}}
 

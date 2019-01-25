@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 # this checks if the program is already running.
 # If not, starts it.
 function run {
@@ -30,9 +30,13 @@ run pulseeffects --gapplication-service
 run pulseeffects
 run pavucontrol
 
+# terminal
+#run xterm
+#run termite
+
 # user gui programs
 run atom
-run gitkraken
+#run gitkraken
 run firefox
-run nemo
+#run nemo
 run VirtualBox
