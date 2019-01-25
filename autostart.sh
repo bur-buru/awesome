@@ -8,7 +8,8 @@ function run {
   fi
 }
 # compositor
-#run compton -b -c --config ~/.config/compton.conf --backend glx --vsync opengl-swc --glx-use-copysubbuffermesa --xrender-sync --xrender-sync-fence
+run compton -b -c --config ~/.config/compton.conf --backend glx --vsync opengl-swc --glx-use-copysubbuffermesa --xrender-sync --xrender-sync-fence
+#run compton -b -c --config ~/.config/compton.conf
 
 # display
 #run ~/bin/dual.sh
