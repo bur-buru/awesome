@@ -211,7 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.quake = lain.util.quake()
 
     -- Each screen has its own tag table.
-local names = { "www", "atom", "term", "nemo", "visual", "audio", "vbox", "droid", "sys" }
+local names = { "", "", "", "", "", "", "", "", "" }
 local l = awful.layout.suit  -- Just to save some typing: use an alias.
 local layouts = { l.tile, l.tile, l.fair, l.tile, l.fair, l.tile, l.tile.left, l.tile, l.tile }
 awful.tag(names, s, layouts)
