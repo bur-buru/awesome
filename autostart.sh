@@ -10,17 +10,16 @@ function run {
 # screen saver
 run $HOME/bin/ssoff
 
-# system
+# daemons
 run unclutter -root
+run $HOME/.config/awesome/urxvtd.sh
 
 # compositor
-run compton -b --config ~/.config/compton.conf
-
-# daemons
-run $HOME/.config/awesome/urxvtd.sh
+run compton -b --config ~/.config/compton/compton.conf
 
 # applets
 run blueman-applet
+run solaar
 
 # user programs in tag order
 run firefox
