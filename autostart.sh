@@ -1,4 +1,5 @@
 #!/bin/sh
+# Burburu Autostart 
 # check if program is already running. If not, run it.
 function run {
   if ! pgrep $1 ;
@@ -19,7 +20,7 @@ run compton -b --config ~/.config/compton/compton.conf
 
 # applets
 run blueman-applet
-run solaar
+#run solaar #solaar randomly rasises and focuses cliet from systray
 
 # user programs in tag order
 run firefox

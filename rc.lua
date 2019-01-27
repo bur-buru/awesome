@@ -556,38 +556,42 @@ awful.rules.rules = {
     },
 
     -- Terminals
-       { rule = { class = "xterm" },
-       properties = { screen = 1, tag = "sys" } },
+      { rule = { class = "xterm" },
+      properties = { screen = 1, tag = "" } },
 
-       { rule = { class = "termite" },
-       properties = { screen = 1, tag = "term" } },
+      { rule = { class = "termite" },
+      properties = { screen = 1, tag = "" } },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-       { rule = { class = "Firefox" },
-       properties = { screen = 1, tag = "www" } },
+      { rule = { class = "Firefox" },
+      properties = { screen = 1, tag = "" } },
 
     -- Atom
-       { rule = { class = "atom" },
-       properties = { screen = 1, tag = "atom" } },
+      { rule = { class = "atom" },
+      properties = { screen = 1, tag = "" } },
 
     -- Nemo
-       { rule = { class = "nemo" },
-       properties = { screen = 1, tag = "nemo" } },
+      { rule = { class = "nemo" },
+      properties = { screen = 1, tag = "" } },
 
     -- Visual
       { rule = { class = "gimp" },
-      properties = { screen = 1, tag = "visual" } },
+      properties = { screen = 1, tag = "" } },
 
     -- Audio
       { rule = { class = "pavucontrol" },
-      properties = { screen = 1, tag = "audio" } },
+      properties = { screen = 1, tag = "" } },
 
       { rule = { class = "pulseeffects" },
-      properties = { screen = 1, tag = "audio" } },
+      properties = { screen = 1, tag = "" } },
 
     -- VirtualBox
-       { rule = { class = "VirtualBox" },
-       properties = { screen = 1, tag = "vbox" } },
+      { rule = { class = "VirtualBox" },
+      properties = { screen = 1, tag = "" } },
+
+    -- ADB
+      { rule = { class = "xterm" },
+      properties = { screen = 1, tag = "" } },
 }
 -- }}}
 
