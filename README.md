@@ -1,2 +1,2 @@
 # awesome
-awesome wm configuration
+awesome wm configuration version 4.2+
