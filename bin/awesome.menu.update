@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# Update Arch XDG Menu for Awesome WM
+
+xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu >~/.config/awesome/modules/archmenu.lua 

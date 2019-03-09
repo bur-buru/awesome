@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+# check rc.lua for errors
+echo "Checking Awesome rc.lua for errors..." | lolcat
+awesome -k rc.lua

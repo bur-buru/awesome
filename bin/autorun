@@ -1,0 +1,33 @@
+#!/bin/zsh
+# Burburu Autostart 
+
+# check if program is already running. If not, run it.
+function run {
+  if ! pgrep $1 ;
+  then
+    $@&
+  fi
+}
+
+# Add programs & apps here
+run ~/bin/docked.sh
+
+# Daemons
+run pulseeffects --gapplication-service
+run urxvtd -q -o
+run unclutter --root
+
+# Applets
+run blueman-applet
+
+# VMs
+run ~/bin/freebsd.start
+
+# Applications
+run firefox
+run nemo
+run spotify
+run VirtualBox
+
+# Display
+run compton -b
