@@ -21,7 +21,7 @@ run unclutter --root
 run blueman-applet
 
 # VMs
-run ~/bin/freebsd.start
+#run ~/bin/freebsd.start
 
 # Applications
 run firefox
