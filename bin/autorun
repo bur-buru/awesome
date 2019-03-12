@@ -27,7 +27,6 @@ run blueman-applet
 run firefox
 run nemo
 run spotify
-run VirtualBox
 
 # Display
 run compton -b
